@@ -27,6 +27,15 @@ db.serialize(() => {
         license_plate TEXT UNIQUE NOT NULL,
         added_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS parking_sessions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        license_plate TEXT NOT NULL,
+        entry_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+        exit_time DATETIME,
+        member_type TEXT NOT NULL,
+        FOREIGN KEY (license_plate) REFERENCES members(license_plate)
+    )`);
 });
 
 db.close();

@@ -1,4 +1,10 @@
-const db = require('../config/database');
+const { checkBlacklist, checkMembership } = require('../utils/vehicleUtils');
+const { 
+    handleMemberEntry,
+    handleVisitorEntry,
+    handleMemberExit,
+    handleVisitorExit
+} = require('../services/vehicleService');
 
 async function processVehicle(licensePlate, direction) {
     // Check blacklist

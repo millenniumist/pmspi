@@ -1,4 +1,5 @@
 const express = require('express');
+const { processVehicle } = require('../controllers/vehicleController');
 const router = express.Router();
 
 router.post('/plate-detected', async (req, res) => {
